@@ -1,6 +1,7 @@
 //este programa es para hacer sumas armonicas por dos metodos
 
 #include <iostream>
+#include <cmath>
 
 // typedef float REAL;
 // se usa para redefinir float, si se usa se cambia float por REAL
@@ -12,10 +13,12 @@ int main (void)
 {
 	std::cout.precision(6);
 	std::cout.setf(std::ios::scientific);
-
-	std::cout << sumup(3) << std::endl;
-	std::cout << sumdown(3) << std::endl;
-
+	
+	for (int ii= 1; ii < 1000; ++ii){
+		float suma1 = sumup(ii);
+		float suma2 = sumdown(ii);
+		std::cout << ii << "\t" << std::fabs(1 - suma1/suma2) << std::endl;
+	}
 	return 0;
 }
 
