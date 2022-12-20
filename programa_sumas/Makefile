@@ -8,6 +8,7 @@
 # se debe especificar todavia lo que se quiere crear (suma.x) y las dependencias (suma.cpp)
 # pero la regla se generaliza para el caso general
 
+all: fig.pdf
 
 suma.x: suma.cpp
 
@@ -17,8 +18,11 @@ suma.x: suma.cpp
 datos.txt: suma.x
 	./$< > $@
 
+fig.pdf: plot.gp datos.txt
+	gnuplot $<
+
 clean:
-	rm -f a.out *.x *.txt
+	rm -f a.out *.x *.txt *.pdf
 
 
 
